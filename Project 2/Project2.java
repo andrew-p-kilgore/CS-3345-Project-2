@@ -10,14 +10,16 @@ public class Project2 {
 		File inputfile = new File("Books.txt");
 		Scanner input = new Scanner (inputfile);
 		AVLTree tree = new AVLTree();
-		Book[] books = new Book[5];
+		Book[] books = new Book[11];
 		
 		for (int i = 0; i < books.length; i++) {
 			books[i] = new Book (input.next(), input.next(), input.next());
 			tree.add(books[i].ISBN, books[i]);
 		}	
 		
-		System.out.println(tree.root.leftPtr.toString());
-		
+		System.out.println(tree.root.balance);
+		//System.out.println(new File(".").getAbsolutePath());
+		tree.inorder();
+
 	}
 }
