@@ -6,6 +6,7 @@ public class AVLTree {
 	AVLTree () { root = null; }
 	
 	public void add(String isbn, Book book) { 
+		System.out.println("Adding book ISBN " + isbn);
 		root = addBooktoTree (root, isbn, book); //this function starts at the root and goes down the tree
 	}
 	
@@ -21,30 +22,50 @@ public class AVLTree {
 		else if ( key.compareTo(node.key) > 0 ) {
 			node.rightPtr = addBooktoTree(node.rightPtr, key, book);
 		}
+		else
+			return node;
 		
 		node.height = 1 + max(calcheight(node.leftPtr),calcheight(node.rightPtr));
 		
 		node.balance = calcbalance(node);
 		
+		if ( node.balance > 1 && key.compareTo(node.leftPtr.key) < 0) {
+			System.out.println("Imbalance detected at ISBN " + node.key + "."
+					+ " Fixed in LeftLeft Rotation");
+			return rightRotate(node);
+		}
+		if ( node.balance > 1 && key.compareTo(node.leftPtr.key) > 0) {
+			node.leftPtr = leftRotate(node.leftPtr);
+			System.out.println("Imbalance detected at ISBN " + node.key + "."
+					+ " Fixed in LeftRight Rotation");
+			return rightRotate(node);
+		}
+		if ( node.balance < -1 && key.compareTo(node.rightPtr.key) > 0) {
+			System.out.println("Imbalance detected at ISBN " + node.key + "."
+					+ " Fixed in RightRight Rotation");
+			return leftRotate(node);
+		}
+		if ( node.balance < -1 && key.compareTo(node.rightPtr.key) < 0) {
+			node.rightPtr = rightRotate(node.rightPtr);
+			System.out.println("Imbalance detected at ISBN " + node.key + "."
+					+ " Fixed in RightLeft Rotation");
+			return leftRotate(node);
+		}
+		
 		return node;
 	}
 	
-	public void inorder()  { 
-	       inorderRec(root); 
-	    } 
-	  
-    // A utility function to do inorder traversal of BST 
-    public void inorderRec(AVLNode node) { 
-        if (node != null) { 
-            inorderRec(node.leftPtr); 
-            System.out.println(node.toString()); 
-            inorderRec(node.rightPtr); 
-        } 
-    }
+	public void toString(AVLNode node) {
+		if (node != null) {
+			System.out.print(node.toString());
+			toString(node.leftPtr);
+			toString(node.rightPtr);
+		}
+	}
     
     public int calcheight (AVLNode node) {
     	if ( node == null)
-    		return 0;
+    		return -1;
     	else
     		return node.height;
     }
@@ -62,5 +83,27 @@ public class AVLTree {
     	else {
     		return (calcheight(node.leftPtr) - calcheight(node.rightPtr));
     	}
+    }
+    
+    public AVLNode leftRotate(AVLNode node) {
+    	AVLNode rightchild = node.rightPtr;
+    	AVLNode leftgrandchild = rightchild.leftPtr;
+    	rightchild.leftPtr = node;
+    	node.rightPtr = leftgrandchild;
+    	node.height = 1 + max( calcheight(node.leftPtr), calcheight(node.rightPtr));
+    	rightchild.height = 1 + max( calcheight(rightchild.leftPtr), calcheight(rightchild.rightPtr));
+    	node.balance = calcbalance(node);
+    	return rightchild;
+    }
+    
+    public AVLNode rightRotate(AVLNode node) {
+    	AVLNode leftchild = node.leftPtr;
+    	AVLNode rightgrandchild = leftchild.rightPtr;
+    	leftchild.rightPtr = node;
+    	node.leftPtr = rightgrandchild;
+    	node.height = 1 + max( calcheight(node.leftPtr), calcheight(node.rightPtr));
+    	leftchild.height = 1 + max( calcheight(leftchild.leftPtr), calcheight(leftchild.rightPtr));
+    	node.balance = calcbalance(node);
+    	return leftchild;
     }
 }

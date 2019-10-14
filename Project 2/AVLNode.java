@@ -11,12 +11,13 @@ public class AVLNode {
 	key = isbn;
 	value = new Book (book.ISBN, book.Title, book.AuthorLastName);
 	height = 0;
+	balance = 0;
 	leftPtr = null;
 	rightPtr = null;
 	}
 	
 	public String toString() {
-		return key + " " + value.Title + " " + value.AuthorLastName;
+		return key + " " + value.Title + " " + value.AuthorLastName + '\n';
 	}
 	
 }
