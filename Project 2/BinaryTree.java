@@ -72,7 +72,7 @@ public class BinaryTree {
     public void displayBT(BinaryNode node) {
 		if (node != null) {
 			displayBT(node.leftPtr);
-			System.out.println("Key: " + node.key + "  Height: " + node.height + "  Balance: " + node.balance);
+			System.out.println("Key: " + node.key + "  Height: " + calcheight(node) + "  Balance: " + calcbalance(node));
 			displayBT(node.rightPtr);
 		}
 	}

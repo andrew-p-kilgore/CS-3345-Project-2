@@ -17,6 +17,9 @@ public class Project2 {
 		int num = 0;
 		
 		//Part 1
+		
+		System.out.println("Creating AVL tree with Books...");
+		
 		for (int i = 0; i < books.length; i++) {
 			books[i] = new Book (input.next(), input.next(), input.next());
 			tree.add(books[i].ISBN, books[i]);
@@ -29,6 +32,8 @@ public class Project2 {
 		
 		//Part 2
 		num = seed.nextInt(25) + 1;
+		
+		System.out.println("\nCreating random binary tree...");
 		
 		for ( int i = 0; i < num; i++ ) {
 			bst.add(seed.nextInt(100));
