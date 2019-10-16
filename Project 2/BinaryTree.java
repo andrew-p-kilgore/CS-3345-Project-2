@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class BinaryTree {
 
@@ -16,17 +17,16 @@ public class BinaryTree {
 			return node;
 		}
 		
-		if ( key < node.key ) {
+		//The following lines randomly determine if the node is inserted to the left or right
+		Random seed = new Random();
+		int direction = seed.nextInt(2);
+		if ( direction == 1 )
 			node.leftPtr = addNodetoTree(node.leftPtr, key);
-		}
-		else if ( key > node.key ) {
-			node.rightPtr = addNodetoTree(node.rightPtr, key);
-		}
 		else
-			return node;
+			node.rightPtr = addNodetoTree(node.rightPtr, key);
 		
+		//These two calculate the height and balance of the node, and account for additional nodes
 		node.height = 1 + max(calcheight(node.leftPtr),calcheight(node.rightPtr));
-		
 		node.balance = calcbalance(node);
 		
 		/*if ( node.balance > 1 && key < node.leftPtr.key) {
@@ -72,7 +72,7 @@ public class BinaryTree {
     public void displayBT(BinaryNode node) {
 		if (node != null) {
 			displayBT(node.leftPtr);
-			System.out.println(node.key);
+			System.out.println("Key: " + node.key + "  Height: " + node.height + "  Balance: " + node.balance);
 			displayBT(node.rightPtr);
 		}
 	}

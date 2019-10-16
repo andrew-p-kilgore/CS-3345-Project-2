@@ -23,17 +23,18 @@ public class Project2 {
 		}
 		
 		//System.out.println(new File(".").getAbsolutePath());
+		System.out.println("\nPrinting AVL tree 'pre-order' (root-left-right)");
 		tree.toString(tree.root);
 		input.close();
 		
 		//Part 2
-		num = seed.nextInt(25);
+		num = seed.nextInt(25) + 1;
 		
 		for ( int i = 0; i < num; i++ ) {
 			bst.add(seed.nextInt(100));
 		}
 		
-		System.out.println("Printing binary tree 'in order' (left-root-right)");
+		System.out.println("\nPrinting binary tree 'in order' (left-root-right)");
 		bst.displayBT(bst.root);
 	}
 }
