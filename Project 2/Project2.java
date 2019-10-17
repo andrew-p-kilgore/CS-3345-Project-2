@@ -27,7 +27,7 @@ public class Project2 {
 		
 		//System.out.println(new File(".").getAbsolutePath());
 		System.out.println("\nPrinting AVL tree 'pre-order' (root-left-right)");
-		tree.toString(tree.root);
+		tree.displayAVLTree(tree.root);
 		input.close();
 		
 		//Part 2

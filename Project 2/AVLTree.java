@@ -55,11 +55,11 @@ public class AVLTree {
 		return node;
 	}
 	
-	public void toString(AVLNode node) {
+	public void displayAVLTree(AVLNode node) {
 		if (node != null) {
 			System.out.print(node.toString());
-			toString(node.leftPtr);
-			toString(node.rightPtr);
+			displayAVLTree(node.leftPtr);
+			displayAVLTree(node.rightPtr);
 		}
 	}
     
