@@ -31,59 +31,49 @@ Printing AVL tree 'pre-order' (root-left-right)
 978-0262033848 Introduction_to_Algorithms Cormen
 
 Creating random binary tree...
-Adding node: 4
-Adding node: 28
-Adding node: 24
-Adding node: 80
-Adding node: 68
-Adding node: 47
-Imbalance detected at node: 28
-Adding node: 47
-Adding node: 95
-Adding node: 12
-Adding node: 46
-Imbalance detected at node: 95
-Imbalance detected at node: 24
-Adding node: 3
-Adding node: 51
-Imbalance detected at node: 28
-Adding node: 20
-Adding node: 61
-Imbalance detected at node: 95
-Adding node: 45
+Adding node: 35
+Adding node: 32
+Adding node: 30
+Imbalance detected at node: 35
+Adding node: 85
+Adding node: 48
+Imbalance detected at node: 32
+Imbalance detected at node: 35
+Adding node: 39
+Adding node: 97
+Imbalance detected at node: 85
+Adding node: 31
+Adding node: 59
+Adding node: 92
+Adding node: 32
+Adding node: 92
+Adding node: 13
 Adding node: 71
-Adding node: 77
-Adding node: 54
-Imbalance detected at node: 47
-Adding node: 83
-Adding node: 89
-Adding node: 47
-Adding node: 94
-Adding node: 54
-Adding node: 0
+Imbalance detected at node: 59
+Adding node: 85
+Imbalance detected at node: 59
 
 Printing binary tree 'in order' (left-root-right)
-Key: 54  Height: 0  Balance: 0
-Key: 51  Height: 1  Balance: 1
-Key: 47  Height: 2  Balance: 1
-Key: 94  Height: 0  Balance: 0
-Key: 80  Height: 3  Balance: 1
-Key: 0  Height: 0  Balance: 0
-Key: 3  Height: 1  Balance: 0
-Key: 83  Height: 0  Balance: 0
-Key: 28  Height: 4  Balance: 1
-Key: 47  Height: 2  Balance: -2
-Key: 45  Height: 1  Balance: -1
-Key: 54  Height: 0  Balance: 0
-Key: 4  Height: 5  Balance: 1
-Key: 47  Height: 0  Balance: 0
-Key: 20  Height: 1  Balance: 1
-Key: 68  Height: 2  Balance: 1
-Key: 77  Height: 0  Balance: 0
-Key: 24  Height: 3  Balance: 0
-Key: 71  Height: 1  Balance: -1
-Key: 89  Height: 0  Balance: 0
-Key: 95  Height: 2  Balance: 0
-Key: 61  Height: 0  Balance: 0
-Key: 12  Height: 1  Balance: 0
-Key: 46  Height: 0  Balance: 0
+Key: 92  Height: 1  Balance: -1
+Node 92 fails BST check
+Key: 13  Height: 0  Balance: 0
+Key: 39  Height: 2  Balance: 1
+Node 39 fails BST check
+Key: 97  Height: 0  Balance: 0
+Key: 85  Height: 3  Balance: 1
+Node 85 fails BST check
+Key: 32  Height: 0  Balance: 0
+Key: 31  Height: 1  Balance: 1
+Node 31 fails BST check
+Key: 35  Height: 4  Balance: 0
+Node 35 fails BST check
+Node 35 fails BST check
+Key: 30  Height: 1  Balance: -1
+Key: 48  Height: 0  Balance: 0
+Key: 32  Height: 3  Balance: -1
+Key: 59  Height: 2  Balance: -2
+Node 59 fails AVL check
+Key: 85  Height: 0  Balance: 0
+Key: 92  Height: 1  Balance: 0
+Node 92 fails BST check
+Key: 71  Height: 0  Balance: 0

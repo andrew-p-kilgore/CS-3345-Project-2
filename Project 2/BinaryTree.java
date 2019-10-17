@@ -44,6 +44,7 @@ public class BinaryTree {
 		if ( node.balance > 1 || node.balance < -1 )
 			System.out.println("Imbalance detected at node: " + node.key);
 		
+		
 		return node;
 	}
 	
@@ -73,7 +74,25 @@ public class BinaryTree {
 		if (node != null) {
 			displayBT(node.leftPtr);
 			System.out.println("Key: " + node.key + "  Height: " + calcheight(node) + "  Balance: " + calcbalance(node));
+			checkifBST(node);
+			checkAVLfinal(node);
 			displayBT(node.rightPtr);
 		}
 	}
+    
+    public void checkifBST(BinaryNode node) {
+    	if (node != null) {
+    		if (node.leftPtr != null && node.key < node.leftPtr.key)
+    			System.out.println("Node " + node.key + " fails BST check");
+    		if (node.rightPtr != null && node.key > node.rightPtr.key)
+    			System.out.println("Node " + node.key + " fails BST check");
+    	}
+    }
+    
+    public void checkAVLfinal(BinaryNode node) {
+    	if (node != null) {
+    		if (node.balance > 1 || node.balance < -1)
+    			System.out.println("Node " + node.key + " fails AVL check");
+    	}
+    }
 }
